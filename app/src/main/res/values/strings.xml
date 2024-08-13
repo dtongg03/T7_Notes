@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HomelanderNotes</string>
+    <string name="my_note">My Notes</string>
+    <string name="search_notes">Search notes</string>
+    <string name="note_title">Note title</string>
+    <string name="note_subtitle">Note Subtitle</string>
+    <string name="type_note_here">Type note here</string>
+    <string name="bottom_sheet_behavior">Bottom sheet behavior</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="pick_color">Pick Color</string>
+</resources>
