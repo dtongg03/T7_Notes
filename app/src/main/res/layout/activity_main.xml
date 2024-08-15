@@ -8,40 +8,28 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <TextView
-        android:id="@+id/textMyNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:includeFontPadding="false"
-        android:text="@string/my_note"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_20ssp"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/layoutSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:background="@drawable/background_search"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="@dimen/_10sdp"
         android:paddingEnd="@dimen/_10sdp"
-        app:layout_constraintTop_toTopOf="@+id/textMyNote">
+        app:layout_constraintTop_toTopOf="parent">
         
         <ImageView
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_search"
-            app:tint="@color/colorSearchIcon" />
+            app:tint="@color/colorIcon" />
         
         <EditText
             android:id="@+id/inputSearch"
@@ -85,12 +73,33 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
+            android:id="@+id/imageMenu"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/menu"
+            app:tint="@color/colorIcon" />
+
+        <ImageView
+            android:id="@+id/imageGemini"
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/chat"
+            app:tint="@color/colorIcon" />
+
+
+        <ImageView
             android:id="@+id/imageAddNote"
             android:layout_width="@dimen/_23sdp"
             android:layout_height="@dimen/_23sdp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_add_outline"
-            app:tint="@color/colorIcon" />
+            android:src="@drawable/plus"
+            app:tint="@color/colorIcon"
+
+            />
 
         <ImageView
             android:id="@+id/imageAddImage"
@@ -98,8 +107,10 @@
             android:layout_height="@dimen/_23sdp"
             android:layout_marginStart="@dimen/_15sdp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_image"
-            app:tint="@color/colorIcon" />
+            android:src="@drawable/addimage"
+            app:tint="@color/colorIcon"
+
+            />
 
         <ImageView
             android:id="@+id/imageAddWebLink"
@@ -108,7 +119,8 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_web_link"
-            app:tint="@color/colorIcon" />
+            app:tint="@color/colorIcon"
+            />
     </LinearLayout>
     
     <ImageView
@@ -120,7 +132,7 @@
         android:contentDescription="@string/app_name"
         android:padding="@dimen/_5sdp"
         android:src="@drawable/ic_add"
-        app:tint="@color/colorPrimary"
+
         app:layout_constraintBottom_toTopOf="@+id/layoutQuickActions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/layoutQuickActions" />
