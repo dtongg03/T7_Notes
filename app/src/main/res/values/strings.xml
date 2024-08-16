@@ -13,4 +13,7 @@
     <string name="enter_url_bro">Enter url bro!</string>
     <string name="add">ADD</string>
     <string name="cancel">CANCEL</string>
+    <string name="detele_note">Detele note</string>
+    <string name="delete_note">Delete note</string>
+    <string name="are_you_sure_you_want_to_delete_this_note_right">Are you sure? you want to delete this note right?</string>
 </resources>
