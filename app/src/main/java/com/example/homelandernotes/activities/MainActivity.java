@@ -54,8 +54,9 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
     private int noteClickedPosition = -1;
 
     private AlertDialog dialogAddURL;
+    private ImageView imageTask;
 
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,15 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                         new Intent(getApplicationContext(), CreateNoteActivity.class),
                         REQUEST_CODE_ADD_NOTE
                 );
+            }
+        });
+        imageTask = findViewById(R.id.imageTask);
+        imageTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Chuyển sang giao diện danh sác công việc
+                Intent intent = new Intent(MainActivity.this, TaskListActivity.class);
+                startActivity(intent);
             }
         });
         notesRecyclerView = findViewById(R.id.notesRecyclerView);

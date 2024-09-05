@@ -82,12 +82,12 @@
             app:tint="@color/colorIcon" />
 
         <ImageView
-            android:id="@+id/imageGemini"
-            android:layout_width="@dimen/_23sdp"
-            android:layout_height="@dimen/_23sdp"
+            android:id="@+id/imageTask"
+            android:layout_width="@dimen/_26sdp"
+            android:layout_height="@dimen/_26sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/chat"
+            android:src="@drawable/ic_calenda"
             app:tint="@color/colorIcon" />
 
 

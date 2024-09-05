@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+
+    <!-- Quyền truy cập media (nếu cần) -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- Có thể cần thêm các quyền khác tùy thuộc vào yêu cầu ứng dụng của bạn -->
 
     <application
         android:allowBackup="true"
@@ -18,12 +18,12 @@
         android:theme="@style/Theme.HomelanderNotes"
         tools:targetApi="31">
 
-
         <activity
             android:name=".activities.CreateNoteActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             android:exported="false" />
+
         <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
@@ -31,10 +31,19 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.TaskListActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.AddTaskActivity"/>
+        <activity
+            android:name=".activities.DayDetailsActivity"/>
+        <activity
+            android:name=".activities.TaskDetailActivity" />
     </application>
 
 </manifest>
