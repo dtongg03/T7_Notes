@@ -14,6 +14,12 @@ import java.util.List;
 @Dao
 public interface TaskDao {
 
+    @Query("SELECT * FROM tasks")
+    LiveData<List<Task>> getAllTasks();
+
+    @Query("SELECT * FROM tasks WHERE due_date = :date")
+    LiveData<List<Task>> getTasksByDate(String date);
+
     @Insert
     void insert(Task task);
 
@@ -22,10 +28,4 @@ public interface TaskDao {
 
     @Delete
     void delete(Task task);
-
-    @Query("SELECT * FROM tasks WHERE date = :date")
-    LiveData<List<Task>> getTasksByDate(String date);
-
-    @Query("SELECT * FROM tasks")
-    LiveData<List<Task>> getAllTasks();
 }

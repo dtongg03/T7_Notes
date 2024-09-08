@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import com.example.homelandernotes.dao.TaskDao;
-import com.example.homelandernotes.database.TaskDatabase;
+import com.example.homelandernotes.database.NotesDatabase;
 import com.example.homelandernotes.entities.Task;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public class TaskRepository {
     private LiveData<List<Task>> allTasks;
 
     public TaskRepository(Application application) {
-        TaskDatabase database = TaskDatabase.getDatabase(application);
+        NotesDatabase database = NotesDatabase.getDatabase(application);
         taskDao = database.taskDao();
         allTasks = taskDao.getAllTasks();
     }
@@ -26,18 +26,18 @@ public class TaskRepository {
     }
 
     public LiveData<List<Task>> getTasksByDate(String date) {
-        return (LiveData<List<Task>>) taskDao.getTasksByDate(date);
+        return taskDao.getTasksByDate(date);
     }
 
     public void insert(Task task) {
-        TaskDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.insert(task));
+        NotesDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.insert(task));
     }
 
     public void update(Task task) {
-        TaskDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.update(task));
+        NotesDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.update(task));
     }
 
     public void delete(Task task) {
-        TaskDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.delete(task));
+        NotesDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.delete(task));
     }
 }

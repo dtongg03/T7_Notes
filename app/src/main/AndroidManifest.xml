@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Quyền truy cập media (nếu cần) -->
+    <!-- Quyền để gửi thông báo và quản lý báo thức -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" tools:targetApi="tiramisu"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <!-- Có thể cần thêm các quyền khác tùy thuộc vào yêu cầu ứng dụng của bạn -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/task"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -44,6 +45,9 @@
             android:name=".activities.DayDetailsActivity"/>
         <activity
             android:name=".activities.TaskDetailActivity" />
-    </application>
 
+        <!-- Khai báo BroadcastReceiver cho báo thức -->
+        <receiver android:name=".receivers.TaskAlarmReceiver" />
+
+    </application>
 </manifest>

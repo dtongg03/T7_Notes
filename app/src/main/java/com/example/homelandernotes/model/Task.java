@@ -1,20 +1,27 @@
 package com.example.homelandernotes.model;
 
 public class Task {
+
+    public enum Status {
+        PENDING, IN_PROGRESS, COMPLETED
+    }
+
     private String title;
     private String description;
     private int startHour;
     private int startMinute;
     private int endHour;
     private int endMinute;
+    private Status status;  // Thêm thuộc tính trạng thái
 
-    public Task(String title, String description, int startHour, int startMinute, int endHour, int endMinute) {
+    public Task(String title, String description, int startHour, int startMinute, int endHour, int endMinute, Status status) {
         this.title = title;
         this.description = description;
         this.startHour = startHour;
         this.startMinute = startMinute;
         this.endHour = endHour;
         this.endMinute = endMinute;
+        this.status = status;  // Khởi tạo trạng thái
     }
 
     public String getTitle() {
@@ -64,5 +71,13 @@ public class Task {
     public void setEndMinute(int endMinute) {
         this.endMinute = endMinute;
     }
-    // Getter and Setter methods
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
 }

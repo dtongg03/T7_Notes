@@ -1,48 +1,44 @@
 package com.example.homelandernotes.entities;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "tasks")
 public class Task {
-
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private String date; // Định dạng: "dd/MM/yyyy"
+    @ColumnInfo(name = "title")
     private String title;
-    private String description;
-    private int startHour;
-    private int startMinute;
-    private int endHour;
-    private int endMinute;
 
-    // Constructor
-    public Task(String date, String title, String description, int startHour, int startMinute, int endHour, int endMinute) {
-        this.date = date;
-        this.title = title;
-        this.description = description;
-        this.startHour = startHour;
-        this.startMinute = startMinute;
-        this.endHour = endHour;
-        this.endMinute = endMinute;
+    @ColumnInfo(name = "description")
+    private String description;
+
+    @ColumnInfo(name = "due_date")
+    private String dueDate;
+
+    @ColumnInfo(name = "status")
+    private Status status;
+
+    @ColumnInfo(name = "timestamp")
+    private long timestamp;
+
+    // Enum Status
+    public enum Status {
+        PENDING,
+        IN_PROGRESS,
+        COMPLETED
     }
 
-    // Getters và Setters
+    // Getter và Setter cho các thuộc tính
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getTitle() {
@@ -61,35 +57,33 @@ public class Task {
         this.description = description;
     }
 
-    public int getStartHour() {
-        return startHour;
+    public String getDueDate() {
+        return dueDate;
     }
 
-    public void setStartHour(int startHour) {
-        this.startHour = startHour;
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 
-    public int getStartMinute() {
-        return startMinute;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStartMinute(int startMinute) {
-        this.startMinute = startMinute;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    public int getEndHour() {
-        return endHour;
+    public long getTimestamp() {
+        return timestamp;
     }
 
-    public void setEndHour(int endHour) {
-        this.endHour = endHour;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public int getEndMinute() {
-        return endMinute;
-    }
-
-    public void setEndMinute(int endMinute) {
-        this.endMinute = endMinute;
+    @NonNull
+    @Override
+    public String toString() {
+        return title + ": " + dueDate;
     }
 }
