@@ -47,7 +47,9 @@
             android:name=".activities.TaskDetailActivity" />
 
         <!-- Khai báo BroadcastReceiver cho báo thức -->
-        <receiver android:name=".receivers.TaskAlarmReceiver" />
-
+        <receiver
+            android:name=".receivers.TaskAlarmReceiver"
+            android:exported="true"
+            android:enabled="true" />
     </application>
 </manifest>

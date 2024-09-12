@@ -1,6 +1,8 @@
 package com.example.homelandernotes.activities;
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -28,6 +30,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -37,6 +41,8 @@ import com.example.homelandernotes.adapters.NotesAdapter;
 import com.example.homelandernotes.database.NotesDatabase;
 import com.example.homelandernotes.entities.note;
 import com.example.homelandernotes.listeners.NotesListener;
+import com.example.homelandernotes.model.Task;
+import com.example.homelandernotes.receivers.AlarmUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,6 +149,8 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
                 showAddURLDialog();
             }
         });
+
+        AlarmUtils.setTaskAlarm(this, "Công việc quan trọng", 5);
     }
     private void selectImage(){
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -297,4 +305,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
         }
         dialogAddURL.show();
     }
+
+
 }
