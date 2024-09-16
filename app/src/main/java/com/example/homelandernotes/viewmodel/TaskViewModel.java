@@ -25,7 +25,9 @@ public class TaskViewModel extends AndroidViewModel {
         return allTasks;
     }
 
+    // Sửa kiểu trả về của phương thức getTasksByDate
     public LiveData<List<Task>> getTasksByDate(String date) {
-        return repository.getTasksByDate(date);
+        return (LiveData<List<Task>>) repository.getTasksByDate(date);
     }
+
 }

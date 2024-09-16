@@ -1,8 +1,10 @@
 <!-- res/menu/task_menu.xml -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/delete_task"
         android:title="Xóa công việc"
-        android:icon="@drawable/ic_delete"
-        android:showAsAction="ifRoom"/>
+        android:icon="@drawable/background_delete"
+        app:showAsAction="never"/>
 </menu>

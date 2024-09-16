@@ -5,4 +5,62 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="CalendarDateText">
+        <item name="android:textColor">#FFFFFF</item> <!-- Màu trắng cho ngày -->
+        <item name="android:textSize">18sp</item> <!-- Kích thước chữ -->
+    </style>
+
+    <style name="CalendarWeekDayText">
+        <item name="android:textColor">#FFFF00</item> <!-- Màu vàng cho ngày trong tuần -->
+        <item name="android:textSize">16sp</item> <!-- Kích thước chữ -->
+    </style>
+
+    <style name="CustomCalendarView" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Tùy chỉnh màu chữ ngày hiện tại -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <!-- Tùy chỉnh màu chữ của các ngày không trong tháng -->
+        <item name="android:textColorSecondary">#777777</item>
+        <!-- Tùy chỉnh màu của nút điều hướng -->
+        <item name="android:buttonTint">#FFFF00</item>
+    </style>
+
+
+
+
+
+
+    <!-- Style cho EditText -->
+    <style name="CustomEditText">
+        <item name="android:background">?attr/editTextStyle</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAppearance">@style/EditTextAppearance</item>
+    </style>
+
+    <style name="EditTextAppearance">
+        <item name="android:textColorHint">#BBBBBB</item>
+    </style>
+
+
+
+    <!-- Style cho Button -->
+    <style name="CustomButton">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Style cho TextView -->
+    <style name="CustomTextView">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <!-- Style cho ImageButton -->
+    <style name="CustomImageButton">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:tint">#FFFF00</item> <!-- Màu vàng cho icon -->
+    </style>
+
+
 </resources>
+

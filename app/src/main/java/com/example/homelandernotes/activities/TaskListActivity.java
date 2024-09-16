@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.homelandernotes.R;
@@ -19,7 +21,7 @@ public class TaskListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task_list);
 
         calendarView = findViewById(R.id.calendarView);
-        Button buttonAddTask = findViewById(R.id.buttonAddTask);
+        ImageButton buttonAddTask = findViewById(R.id.buttonAddTask);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -29,6 +31,8 @@ public class TaskListActivity extends AppCompatActivity {
                 String selectedDate = String.format("%d-%02d-%02d", year, month + 1, dayOfMonth);
                 intent.putExtra("selectedDate", selectedDate);
                 startActivity(intent);
+
+
             }
         });
 

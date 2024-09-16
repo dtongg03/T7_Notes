@@ -7,7 +7,8 @@
     android:layout_marginStart="@dimen/_12sdp"
     android:layout_marginTop="@dimen/_12sdp"
     android:background="@drawable/background_note"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageNote"

@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             @Override
             protected List<note> doInBackground(Void... voids) {
                 return NotesDatabase
-                        .getNotesDatabase(getApplicationContext())
+                        .getDatabase(getApplicationContext())
                         .noteDao().getAllNotes();
             }
             @SuppressLint("NotifyDataSetChanged")

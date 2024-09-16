@@ -181,7 +181,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         class savaNoteTask extends AsyncTask<Void, Void, Void> {
             @Override
             protected Void doInBackground(Void... voids) {
-                NotesDatabase.getNotesDatabase(getApplicationContext()).noteDao().InsertNote(nt);
+                NotesDatabase.getDatabase(getApplicationContext()).noteDao().InsertNote(nt);
                 return null;
             }
 
@@ -382,7 +382,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
                         @Override
                         protected Void doInBackground(Void... voids) {
-                            NotesDatabase.getNotesDatabase(getApplicationContext()).noteDao()
+                            NotesDatabase.getDatabase(getApplicationContext()).noteDao()
                                     .DeleteNote(alreadyAvailableNote);
                             return null;
                         }

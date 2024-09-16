@@ -43,4 +43,5 @@ dependencies {
     implementation libs.ssp
     implementation libs.roundedimageview
     implementation libs.coordinatorlayout
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 }

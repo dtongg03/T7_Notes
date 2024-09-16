@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-</selector>
+<!-- res/drawable/rounded_search_view.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/colorTextHint"/> <!-- Màu nền cho SearchView -->
+    <corners android:radius="16dp"/> <!-- Bo tròn góc với bán kính 16dp -->
+</shape>
