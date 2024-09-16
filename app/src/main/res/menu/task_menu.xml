@@ -1,0 +1,8 @@
+<!-- res/menu/task_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/delete_task"
+        android:title="Xóa công việc"
+        android:icon="@drawable/ic_delete"
+        android:showAsAction="ifRoom"/>
+</menu>
