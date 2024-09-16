@@ -34,10 +34,16 @@ public class TaskRepository {
     }
 
     public void update(Task task) {
-        NotesDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.update(task));
+        // Thực hiện cập nhật công việc trong cơ sở dữ liệu
+        new Thread(() -> taskDao.update(task)).start();
     }
+
 
     public void delete(Task task) {
         NotesDatabase.getDatabaseWriteExecutor().execute(() -> taskDao.delete(task));
     }
+    public LiveData<Task> getTaskById(int taskId) {
+        return taskDao.getTaskById(taskId);
+    }
+
 }

@@ -5,6 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Calendar;
+
 @Entity(tableName = "tasks")
 public class Task {
     @PrimaryKey(autoGenerate = true)
@@ -25,14 +27,18 @@ public class Task {
     @ColumnInfo(name = "timestamp")
     private long timestamp;
 
-    // Enum Status
+    @ColumnInfo(name = "start_time")
+    private long startTime; // Lưu dưới dạng long
+
+    @ColumnInfo(name = "end_time")
+    private long endTime; // Lưu dưới dạng long
+
     public enum Status {
         PENDING,
         IN_PROGRESS,
         COMPLETED
     }
 
-    // Getter và Setter cho các thuộc tính
     public int getId() {
         return id;
     }
@@ -79,6 +85,22 @@ public class Task {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
     }
 
     @NonNull

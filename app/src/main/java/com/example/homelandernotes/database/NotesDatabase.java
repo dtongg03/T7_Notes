@@ -28,7 +28,7 @@ public abstract class NotesDatabase extends RoomDatabase {
             synchronized (NotesDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    NotesDatabase.class, "app_database")
+                                    NotesDatabase.class, "notes_db")
                             .fallbackToDestructiveMigration()
                             .build();
                 }

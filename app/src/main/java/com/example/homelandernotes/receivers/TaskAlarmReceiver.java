@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -22,19 +23,24 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 public class TaskAlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        // Nhận tiêu đề công việc và số lượng công việc chưa hoàn thành từ Intent
         String taskTitle = intent.getStringExtra("task_title");
-        int pendingTasks = intent.getIntExtra("pending_tasks", 0); // Số lượng công việc chưa hoàn thành
+        int pendingTasks = intent.getIntExtra("pending_tasks", 5); // Số lượng công việc chưa hoàn thành
 
-        // Gửi thông báo cho người dùng
+        // Kiểm tra nếu taskTitle null hoặc rỗng thì không tạo thông báo
+        if (taskTitle == null || taskTitle.isEmpty()) {
+            return;  // Không gửi thông báo nếu không có tiêu đề công việc
+        }
+
         createNotification(context, taskTitle, pendingTasks);
 
-        // Cập nhật số lượng badge trên icon ngoài màn hình
-        ShortcutBadger.applyCount(context, pendingTasks); // Đặt số lượng badge
+        // Cập nhật badge count
+        ShortcutBadger.applyCount(context, pendingTasks);
+        Log.d("TaskAlarmReceiver", "Pending tasks count: " + pendingTasks);
+
     }
 
+
     private void createNotification(Context context, String taskTitle, int pendingTasks) {
-        // Tạo kênh thông báo nếu chưa được tạo (chỉ từ Android O trở lên)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     "task_channel",
@@ -49,7 +55,6 @@ public class TaskAlarmReceiver extends BroadcastReceiver {
             }
         }
 
-        // Tạo PendingIntent cho thông báo (mở MainActivity khi người dùng nhấn vào thông báo)
         Intent notificationIntent = new Intent(context, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT

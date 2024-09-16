@@ -162,7 +162,9 @@ public class AddTaskActivity extends AppCompatActivity {
     private void scheduleAlarm(Task task, long triggerAtMillis) {
         Intent intent = new Intent(this, TaskAlarmReceiver.class);
         intent.putExtra("task_title", task.getTitle());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, task.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Sử dụng FLAG_IMMUTABLE cho PendingIntent
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, task.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         try {
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -174,6 +176,7 @@ public class AddTaskActivity extends AppCompatActivity {
             Toast.makeText(this, "Quyền không được cấp, không thể đặt thông báo", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {

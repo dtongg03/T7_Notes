@@ -2,6 +2,8 @@ package com.example.homelandernotes.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,5 +47,21 @@ public class DayDetailsActivity extends AppCompatActivity {
                 taskListView.setAdapter(adapter);
             }
         });
+
+        // Thiết lập sự kiện khi nhấp vào mục công việc
+        taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Task selectedTask = (Task) parent.getItemAtPosition(position);
+                Intent intent = new Intent(DayDetailsActivity.this, AddTaskActivity.class);
+                intent.putExtra("TASK_ID", selectedTask.getId()); // Gửi ID của công việc để chỉnh sửa
+                startActivityForResult(intent, REQUEST_CODE_EDIT_TASK);
+            }
+        });
+
+        // Thiết lập sự kiện cho nút quay lại
+        findViewById(R.id.buttonBack).setOnClickListener(v -> finish());
     }
+
+    private static final int REQUEST_CODE_EDIT_TASK = 2; // Mã yêu cầu để nhận kết quả từ AddTaskActivity
 }

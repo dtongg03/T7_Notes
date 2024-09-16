@@ -19,6 +19,8 @@ public interface TaskDao {
 
     @Query("SELECT * FROM tasks WHERE due_date = :date")
     LiveData<List<Task>> getTasksByDate(String date);
+    @Query("SELECT * FROM tasks WHERE id = :taskId")
+    LiveData<Task> getTaskById(int taskId);
 
     @Insert
     void insert(Task task);

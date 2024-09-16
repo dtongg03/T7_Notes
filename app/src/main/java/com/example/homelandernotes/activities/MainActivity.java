@@ -150,7 +150,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             }
         });
 
-        AlarmUtils.setTaskAlarm(this, "Công việc quan trọng", 5);
     }
     private void selectImage(){
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

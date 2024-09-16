@@ -4,7 +4,6 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
-    <!-- Hiển thị trạng thái công việc với màu sắc -->
     <View
         android:id="@+id/taskStatusView"
         android:layout_width="8dp"
@@ -16,7 +15,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
 
         <TextView
             android:id="@+id/taskTitle"

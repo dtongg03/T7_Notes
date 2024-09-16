@@ -45,7 +45,7 @@
             android:name=".activities.DayDetailsActivity"/>
         <activity
             android:name=".activities.TaskDetailActivity" />
-
+        <activity android:name=".activities.EditTaskActivity"/>
         <!-- Khai báo BroadcastReceiver cho báo thức -->
         <receiver
             android:name=".receivers.TaskAlarmReceiver"
