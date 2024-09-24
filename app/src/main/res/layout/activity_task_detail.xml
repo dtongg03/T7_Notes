@@ -6,7 +6,7 @@
     android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
     android:padding="16dp"
-    tools:context=".activities.TaskDetailActivity">
+    tools:context="com.example.homelandernotes.activities.TaskDetailActivity">
 
     <!-- Nút quay lại -->
     <ImageButton

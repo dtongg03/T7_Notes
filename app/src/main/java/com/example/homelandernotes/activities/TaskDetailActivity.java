@@ -1,6 +1,5 @@
 package com.example.homelandernotes.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ListView;

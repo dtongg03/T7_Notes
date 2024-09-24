@@ -1,26 +1,54 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:fitsSystemWindows="true"
-    android:padding="16dp">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"> <!-- Đảm bảo nội dung chiếm toàn bộ không gian -->
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@color/colorPrimaryDark"
+        android:fitsSystemWindows="true"
+        android:padding="16dp">
 
         <!-- Nút quay lại -->
         <ImageButton
             android:id="@+id/buttonBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/cancel"
             android:padding="12dp"
             android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:tint="@android:color/white" />
+
+        <!-- Nút Lưu -->
+        <ImageButton
+            android:id="@+id/buttonSave"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/add"
+            android:src="@drawable/ic_check"
+            android:tint="@android:color/darker_gray"
+            app:layout_constraintEnd_toStartOf="@+id/delete_task"
+            app:layout_constraintTop_toTopOf="@+id/buttonBack" />
+
+        <!-- Nút Xóa -->
+        <ImageButton
+            android:id="@+id/delete_task"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete_note"
+            android:src="@drawable/ic_delete"
+            android:tint="@android:color/holo_red_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonBack" />
 
         <!-- Tiêu đề công việc -->
         <EditText
@@ -29,12 +57,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/edittext_background"
+            android:background="@color/colorPrimaryDark"
             android:hint="Tiêu đề công việc"
             android:minHeight="48dp"
             android:padding="16dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonBack" />
 
         <!-- Mô tả công việc -->
         <EditText
@@ -42,12 +73,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/edittext_background"
+            android:background="@color/colorPrimaryDark"
             android:hint="Mô tả công việc"
             android:minHeight="48dp"
             android:padding="16dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 
         <!-- Ngày -->
         <TextView
@@ -55,13 +89,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/edittext_background"
+            android:background="@color/colorPrimaryDark"
             android:gravity="center_vertical"
-            android:hint="Chọn ngày"
             android:minHeight="48dp"
             android:padding="16dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
 
         <!-- Thời gian bắt đầu -->
         <TextView
@@ -70,14 +106,20 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:text="Thời gian bắt đầu"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDate" />
 
         <TimePicker
             android:id="@+id/startTimePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:timePickerMode="spinner" />
+            android:timePickerMode="spinner"
+            android:theme="@style/TimePickerDarkDialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startTimeLabel" />
 
         <!-- Thời gian kết thúc -->
         <TextView
@@ -86,36 +128,20 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:text="Thời gian kết thúc"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startTimePicker" />
 
         <TimePicker
             android:id="@+id/endTimePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:timePickerMode="spinner" />
+            android:theme="@style/TimePickerDarkDialog"
+            android:timePickerMode="spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/endTimeLabel" />
 
-        <!-- Nút lưu -->
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@color/colorNoteColor2"
-            android:minHeight="48dp"
-            android:text="Lưu"
-            android:textAllCaps="false"
-            android:textColor="@android:color/black" />
-
-        <!-- Nút xóa -->
-        <ImageButton
-            android:id="@+id/delete_task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/ic_delete"
-            android:visibility="gone" />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

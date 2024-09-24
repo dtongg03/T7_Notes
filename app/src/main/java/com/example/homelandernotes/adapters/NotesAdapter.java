@@ -1,6 +1,5 @@
 package com.example.homelandernotes.adapters;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;

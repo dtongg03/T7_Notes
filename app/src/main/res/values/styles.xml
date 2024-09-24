@@ -61,6 +61,20 @@
         <item name="android:tint">#FFFF00</item> <!-- Màu vàng cho icon -->
     </style>
 
+    <!-- TimePicker Dark Theme -->
+    <style name="TimePickerDarkTheme" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:datePickerDialogTheme">@style/TimePickerDarkDialog</item>
+    </style>
+
+    <!-- TimePicker Dialog Theme -->
+    <style name="TimePickerDarkDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
 
 </resources>
 

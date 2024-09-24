@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HomelanderNotes</string>
+    <string name="app_name">NoteAndSchedule</string>
     <string name="my_note">My Notes</string>
     <string name="search_notes">Search notes</string>
     <string name="note_title">Note title</string>

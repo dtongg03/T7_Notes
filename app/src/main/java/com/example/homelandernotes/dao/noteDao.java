@@ -1,7 +1,5 @@
 package com.example.homelandernotes.dao;
 
-import android.provider.ContactsContract;
-
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;

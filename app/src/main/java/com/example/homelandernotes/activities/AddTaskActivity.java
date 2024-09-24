@@ -6,26 +6,18 @@ import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.content.Intent;
-import android.provider.Settings;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.example.homelandernotes.R;
 import com.example.homelandernotes.entities.Task;
@@ -39,7 +31,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private EditText titleEditText, descriptionEditText;
     private TextView dateTextView;
     private TimePicker startTimePicker, endTimePicker;
-    private Button saveButton;
+    private ImageButton saveButton;
     private View deleteButton;
     private TaskRepository taskRepository;
     private Task taskToEdit;

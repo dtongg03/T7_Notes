@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".activities.CreateNoteActivity"
+    tools:context="com.example.homelandernotes.activities.CreateNoteActivity"
     android:fitsSystemWindows="true">
 
     <ScrollView
